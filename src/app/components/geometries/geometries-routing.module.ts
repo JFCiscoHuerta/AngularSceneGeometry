@@ -1,19 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule, Routes } from '@angular/router';
 import { BoxComponent } from './box/box.component';
-import { GeometriesRoutingModule } from './geometries-routing.module';
 
-
+const routes: Routes = [
+  {path: 'box', component: BoxComponent},
+]
 
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
-    BoxComponent,
-    GeometriesRoutingModule
+    RouterModule.forChild(routes)
   ],
   exports: [
-    BoxComponent
+    RouterModule
   ]
 })
-export class GeometriesModule { }
+export class GeometriesRoutingModule { }
