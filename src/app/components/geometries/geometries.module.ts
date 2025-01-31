@@ -5,6 +5,7 @@ import { GeometriesRoutingModule } from './geometries-routing.module';
 import { CylinderComponent } from './cylinder/cylinder.component';
 import { ConeComponent } from './cone/cone.component';
 import { IcosahedronComponent } from './icosahedron/icosahedron.component';
+import { PlaneComponent } from './plane/plane.component';
 
 
 
@@ -16,13 +17,15 @@ import { IcosahedronComponent } from './icosahedron/icosahedron.component';
     ConeComponent,
     CylinderComponent,
     IcosahedronComponent,
+    PlaneComponent,
     GeometriesRoutingModule
   ],
   exports: [
     BoxComponent,
     ConeComponent,
     CylinderComponent,
-    IcosahedronComponent
+    IcosahedronComponent,
+    PlaneComponent
   ]
 })
 export class GeometriesModule { }

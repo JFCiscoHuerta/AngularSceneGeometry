@@ -5,12 +5,14 @@ import { BoxComponent } from './box/box.component';
 import { ConeComponent } from './cone/cone.component';
 import { CylinderComponent } from './cylinder/cylinder.component';
 import { IcosahedronComponent } from './icosahedron/icosahedron.component';
+import { PlaneComponent } from './plane/plane.component';
 
 const routes: Routes = [
   { path: 'box', component: BoxComponent },
   { path: 'cone', component: ConeComponent },
   { path: 'cylinder', component: CylinderComponent },
-  { path: 'icosahedron', component: IcosahedronComponent }
+  { path: 'icosahedron', component: IcosahedronComponent },
+  { path: 'plane', component: PlaneComponent }
 ]
 
 @NgModule({
