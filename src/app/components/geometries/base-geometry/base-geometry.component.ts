@@ -1,15 +1,15 @@
-import { GeometryService } from './../../../shared/services/geometry.service';
-import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { Geometry } from '../../../shared/models/geometry.model';
+import { GeometryService } from '../../../shared/services/geometry.service';
 import WebGL from 'three/examples/jsm/capabilities/WebGL.js';
 
 @Component({
-  selector: 'app-base-geometry-component',
+  selector: 'app-base-geometry',
   imports: [],
-  templateUrl: './base-geometry-component.component.html',
-  styleUrl: './base-geometry-component.component.css'
+  templateUrl: './base-geometry.component.html',
+  styleUrl: './base-geometry.component.css'
 })
-export abstract class BaseGeometryComponentComponent implements AfterViewInit {
+export abstract class BaseGeometryComponent {
 
   @ViewChild('canvasContainer', { static: true }) canvasContainer!: ElementRef;
   protected geometry!: Geometry;
@@ -21,7 +21,7 @@ export abstract class BaseGeometryComponentComponent implements AfterViewInit {
   }
 
   private initScene(): void {
-    this.geometryService.initScene(this.canvasContainer.nativeElement.nativeElement);
+    this.geometryService.initScene(this.canvasContainer.nativeElement);
     this.geometry = this.createGeometry();
 
     const { scene, camera, renderer } = this.geometryService.getSceneData();
