@@ -8,7 +8,7 @@ import { CylinderComponent } from './cylinder/cylinder.component';
 const routes: Routes = [
   {path: 'box', component: BoxComponent},
   {path: 'cone', component: ConeComponent},
-  {path: 'cylinder', component: CylinderComponent}
+  { path: 'cylinder', component: CylinderComponent }
 ]
 
 @NgModule({
