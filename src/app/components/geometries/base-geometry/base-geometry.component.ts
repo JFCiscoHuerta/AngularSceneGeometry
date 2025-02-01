@@ -44,6 +44,7 @@ export abstract class BaseGeometryComponent {
    * If WebGL 2 is available, the animation starts; otherwhise, a warning is displayed.
    */
   private initScene(): void {
+    this.clearScene()
     this.geometryService.initScene(this.canvasContainer.nativeElement);
     this.geometry = this.createGeometry();
 
@@ -55,6 +56,16 @@ export abstract class BaseGeometryComponent {
     } else {
       const warning = WebGL.getErrorMessage;
       this.canvasContainer.nativeElement.appendChild(warning);
+    }
+  }
+
+  /**
+   * Clears all objects from the Three.js scene.
+   */
+  private clearScene(): void {
+    const { scene } = this.geometryService.getSceneData();
+    while (scene.children.length > 0) {
+      scene.remove(scene.children[0])
     }
   }
 
