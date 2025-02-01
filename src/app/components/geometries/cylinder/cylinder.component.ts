@@ -4,6 +4,10 @@ import { Component } from '@angular/core';
 import { Geometry } from '../../../shared/models/geometry.model';
 import { BaseGeometryComponent } from '../base-geometry/base-geometry.component';
 
+/**
+ * Component representing a 3D cylinder geometry.
+ * Extends `BaseGeometryComponent` to handle scene initialization and rendering.
+ */
 @Component({
   selector: 'app-cylinder',
   imports: [],
@@ -12,10 +16,18 @@ import { BaseGeometryComponent } from '../base-geometry/base-geometry.component'
 })
 export class CylinderComponent extends BaseGeometryComponent {
 
+  /**
+   * Creates an instance of `CylinderComponent`.
+   * @param {GeometryService} geometryService  - Service responsible for managing the 3D scene.
+   */
   constructor(geometryService: GeometryService) {
     super(geometryService);
   }
 
+  /**
+   * Overrides the abstract method to create a cylinder geometry.
+   * @returns A `Geometry` instance with a cylinder shape and semi-transparent gray material.
+   */
   protected override createGeometry(): Geometry {
     return new Geometry(
       new THREE.CylinderGeometry(1.5, 1.5, 1, 32),

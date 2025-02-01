@@ -8,8 +8,6 @@ import { IcosahedronComponent } from './icosahedron/icosahedron.component';
 import { PlaneComponent } from './plane/plane.component';
 import { SphereComponent } from './sphere/sphere.component';
 
-
-
 @NgModule({
   declarations: [],
   imports: [
