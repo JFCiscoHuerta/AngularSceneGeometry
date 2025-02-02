@@ -1,0 +1,20 @@
+<mat-toolbar *ngIf="isToolbarVisible" class="geometries-toolbar">
+  <button mat-stroked-button [routerLink]="'/geometries/box'">Box</button>
+  <button mat-stroked-button [routerLink]="'/geometries/cone'">Cone</button>
+  <button mat-stroked-button [routerLink]="'/geometries/cylinder'">Cylinder</button>
+  <button mat-stroked-button [routerLink]="'/geometries/icosahedron'">Icosahedron</button>
+  <button mat-stroked-button [routerLink]="'/geometries/plane'">Plane</button>
+  <button mat-stroked-button [routerLink]="'/geometries/sphere'">Sphere</button>
+
+  <button mat-stroked-button [(colorPicker)]="selectedColor" (colorPickerChange)="onColorChange($event)">
+    <mat-icon [ngStyle]="{ color: selectedColor }">circle</mat-icon> Color
+  </button>
+
+</mat-toolbar>
+
+<div class="toogle-button-container">
+  <button mat-icon-button class="toggle-button" (click)="isToolbarVisible = !isToolbarVisible">
+    <mat-icon>{{ isToolbarVisible ? 'keyboard_arrow_up' : 'keyboard_arrow_down'}}</mat-icon>
+  </button>
+</div>
+

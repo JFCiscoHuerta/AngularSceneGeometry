@@ -3,7 +3,12 @@ import { Component } from '@angular/core';
 import { BaseGeometryComponent } from '../base-geometry/base-geometry.component';
 import { Geometry } from '../../../shared/models/geometry.model';
 import * as THREE from 'three';
+import { ColorService } from '../../../shared/services/color.service';
 
+/**
+ * Component representing a 3D icosahedron geometry.
+ * Extends `BaseGeometryComponent` to handle scene initialization and rendering.
+ */
 @Component({
   selector: 'app-icosahedron',
   imports: [],
@@ -12,10 +17,19 @@ import * as THREE from 'three';
 })
 export class IcosahedronComponent extends BaseGeometryComponent {
 
-  constructor(geometryService: GeometryService) {
-    super(geometryService);
+  /**
+   * Creates an instance of `IcosahedronComponent`.
+   * @param {GeometryService} geometryService  - Service responsible for managing the 3D scene.
+   * @param {ColorService} colorService  - Service responsible for managing the color.
+   */
+  constructor(geometryService: GeometryService, colorService: ColorService) {
+    super(geometryService, colorService);
   }
 
+  /**
+   * Overrides the abstract method to create a icosahedron geometry.
+   * @returns A `Geometry` instance with a icosahedron shape and semi-transparent gray material.
+   */
   protected override createGeometry(): Geometry {
     return new Geometry(
       new THREE.IcosahedronGeometry(1.5, 0),
