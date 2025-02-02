@@ -50,6 +50,16 @@ export class GeometryService {
   }
 
   /**
+   * Clears all objects from the Three.js scene.
+   */
+  public clearScene(): void {
+    const { scene } = this.getSceneData();
+    while (scene.children.length > 0) {
+      scene.remove(scene.children[0])
+    }
+  }
+
+  /**
    * Animates a mesh within the scene, rotating it on the X and Y axes and rendering the changes.
    * @param {THREE.Scene} scene
    * @param {THREE.PerspectiveCamera} camera
