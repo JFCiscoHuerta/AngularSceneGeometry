@@ -5,6 +5,11 @@
   <button mat-stroked-button [routerLink]="'/geometries/icosahedron'">Icosahedron</button>
   <button mat-stroked-button [routerLink]="'/geometries/plane'">Plane</button>
   <button mat-stroked-button [routerLink]="'/geometries/sphere'">Sphere</button>
+
+  <button mat-stroked-button [(colorPicker)]="selectedColor" (colorPickerChange)="onColorChange($event)">
+    <mat-icon [ngStyle]="{ color: selectedColor }">circle</mat-icon> Color
+  </button>
+
 </mat-toolbar>
 
 <div class="toogle-button-container">

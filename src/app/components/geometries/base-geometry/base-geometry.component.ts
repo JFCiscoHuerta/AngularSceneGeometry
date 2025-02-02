@@ -1,7 +1,10 @@
+import { ColorService } from './../../../shared/services/color.service';
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { Geometry } from '../../../shared/models/geometry.model';
 import { GeometryService } from '../../../shared/services/geometry.service';
 import WebGL from 'three/examples/jsm/capabilities/WebGL.js';
+import { Subscription } from 'rxjs';
+import * as THREE from 'three';
 
 /**
  * Abstract base component for handling 3D geometries using Three.js.
@@ -25,11 +28,14 @@ export abstract class BaseGeometryComponent {
    */
   protected geometry!: Geometry;
 
+  color: string = '#808080';
+  private colorSubscription!: Subscription;
+
   /**
    * Creates an instance of `BaseGeometryComponent`.
    * @param {GeometryService} geometryService - responsible for handling the Three.js scene.
    */
-  constructor(protected geometryService: GeometryService) {}
+  constructor(protected geometryService: GeometryService, private colorService: ColorService) {}
 
   /**
    * Lifecycle hook called after the view has been initialized.
@@ -37,6 +43,10 @@ export abstract class BaseGeometryComponent {
    */
   ngAfterViewInit(): void {
     this.initScene();
+
+    this.colorSubscription = this.colorService.color$.subscribe(newColor => {
+      this.setColor(newColor)
+    })
   }
 
   /**
@@ -75,5 +85,16 @@ export abstract class BaseGeometryComponent {
    * @returns An instance of `Geometry`.
    */
   protected abstract createGeometry(): Geometry;
+
+  /**
+   * Sets a new color for the material of the geometry's mesh.
+   * The method checks if the geometry exists and if the mesh material is an instance of THREE.MeshBasicMaterial.
+   * If these conditions are met, it updates the color of the material.
+   * @param {string} newColor - The new color to set, in string format.
+   */
+  protected setColor(newColor: string): void {
+    if (this.geometry && this.geometry.mesh.material instanceof THREE.MeshBasicMaterial) {
+      this.geometry.mesh.material.color.set(newColor);    }
+  }
 
 }

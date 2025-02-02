@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { Geometry } from '../../../shared/models/geometry.model';
 import { GeometryService } from '../../../shared/services/geometry.service';
 import { BaseGeometryComponent } from '../base-geometry/base-geometry.component';
+import { ColorService } from '../../../shared/services/color.service';
 
 /**
  * Component representing a 3D cone geometry.
@@ -19,9 +20,10 @@ export class ConeComponent extends BaseGeometryComponent {
   /**
    * Creates an instance of `ConeComponent`.
    * @param {GeometryService} geometryService  - Service responsible for managing the 3D scene.
+   * @param {ColorService} colorService  - Service responsible for managing the color.
    */
-  constructor(geometryService: GeometryService) {
-    super(geometryService);
+  constructor(geometryService: GeometryService, colorService: ColorService) {
+    super(geometryService, colorService);
   }
 
   /**

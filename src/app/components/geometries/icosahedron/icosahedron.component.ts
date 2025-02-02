@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { BaseGeometryComponent } from '../base-geometry/base-geometry.component';
 import { Geometry } from '../../../shared/models/geometry.model';
 import * as THREE from 'three';
+import { ColorService } from '../../../shared/services/color.service';
 
 /**
  * Component representing a 3D icosahedron geometry.
@@ -19,9 +20,10 @@ export class IcosahedronComponent extends BaseGeometryComponent {
   /**
    * Creates an instance of `IcosahedronComponent`.
    * @param {GeometryService} geometryService  - Service responsible for managing the 3D scene.
+   * @param {ColorService} colorService  - Service responsible for managing the color.
    */
-  constructor(geometryService: GeometryService) {
-    super(geometryService);
+  constructor(geometryService: GeometryService, colorService: ColorService) {
+    super(geometryService, colorService);
   }
 
   /**
