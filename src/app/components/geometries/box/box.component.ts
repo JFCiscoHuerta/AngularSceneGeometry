@@ -1,3 +1,4 @@
+import { ColorService } from './../../../shared/services/color.service';
 import { GeometryService } from './../../../shared/services/geometry.service';
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import * as THREE from 'three';
@@ -19,9 +20,10 @@ export class BoxComponent extends BaseGeometryComponent {
   /**
    * Creates an instance of `BoxComponent`.
    * @param {GeometryService} geometryService  - Service responsible for managing the 3D scene.
+   * @param {ColorService} colorService  - Service responsible for managing the color.
    */
-  constructor(geometryService: GeometryService) {
-    super(geometryService);
+  constructor(geometryService: GeometryService, colorService: ColorService) {
+    super(geometryService, colorService);
   }
 
   /**
